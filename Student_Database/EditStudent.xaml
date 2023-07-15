@@ -1,0 +1,59 @@
+﻿<Window x:Class="Student_Database.EditStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Student_Database"
+        mc:Ignorable="d"
+        Title="EditStudent" Height="550" Width="500"
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None">
+    <Window.DataContext>
+        <local:MainWindowVM/>
+    </Window.DataContext>
+    <Border BorderBrush="Purple"           
+            BorderThickness="3"
+            CornerRadius="20"
+            Background="Orchid">
+        <Border CornerRadius="20">
+            <Border.Background>
+                <ImageBrush ImageSource="Images/secbackground.png" Stretch="UniformToFill" AlignmentY="Bottom"/>
+            </Border.Background>
+            <Grid>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="40 30 0 20">
+                        <TextBlock Text="First Name" FontSize="25" Width="160" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                        <TextBox Name="firstName" Width="250" Padding="2" FontSize="25" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="40 20">
+                        <TextBlock Text="Last Name" FontSize="25" Width="160" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                        <TextBox Name="lastName" Width="250" Padding="2" FontSize="25" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="40 20">
+                        <TextBlock Text="Date Of Birth" FontSize="25" Width="160" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                        <TextBox Name="dateOfBirth" Width="250" Padding="2" FontSize="25" Text="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="40 20">
+                        <TextBlock Text="Age" FontSize="25" Width="160" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                        <TextBox Name="age" Width="250" Padding="2" FontSize="25" Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="40 20">
+                        <TextBlock Text="GPA" FontSize="25" Width="160" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                        <TextBox Name="gpa" Width="250" Padding="2" FontSize="25" Text="{Binding Gpa, UpdateSourceTrigger=PropertyChanged, Delay=1000}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="40 20">
+                        <TextBlock Text="Select Image" FontSize="25" Width="160" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                        <Button Content="Select" Width="100" Style="{StaticResource addButton}" Background="Gray" Margin="0 0 0 0" Command="{Binding SelectImageCommand}"/>
+                        <Image Source="{Binding Image}" HorizontalAlignment="Center" Width="50" Height="50" Margin="10 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource addButton}" Name="edit" Content="Edit" FontSize="25px" Width="150px" Margin="50 -10" Command="{Binding EditStudentCommand}"/>
+                        <Button Style="{StaticResource addButton}" Name="cancel" Content="Cancel" FontSize="25px" Width="150px" Margin="45 -10" Click="Close_Click"/>
+                    </StackPanel>
+                    
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+</Window>
